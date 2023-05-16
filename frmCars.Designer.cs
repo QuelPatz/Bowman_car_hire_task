@@ -42,17 +42,17 @@ namespace CarsDatabase
             this.btnLast = new System.Windows.Forms.Button();
             this.frmAvailable = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.frmVehicleRegistrationNumberLabel = new System.Windows.Forms.Label();
+            this.frmMakeLabel = new System.Windows.Forms.Label();
+            this.frmEngineSizeLabel = new System.Windows.Forms.Label();
+            this.frmDateRegisteredLabel = new System.Windows.Forms.Label();
+            this.frmRentalPerDayLabel = new System.Windows.Forms.Label();
+            this.frmAvailableLabel = new System.Windows.Forms.Label();
+            this.frmVehicleRegistrationNumber = new System.Windows.Forms.TextBox();
+            this.frmEngineSize = new System.Windows.Forms.TextBox();
+            this.frmDateReg = new System.Windows.Forms.TextBox();
+            this.frmRentalPerDay = new System.Windows.Forms.TextBox();
+            this.frmMake = new System.Windows.Forms.TextBox();
             this.recordCount = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -65,6 +65,7 @@ namespace CarsDatabase
             this.btnUpdate.TabIndex = 0;
             this.btnUpdate.Text = "&Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -75,6 +76,7 @@ namespace CarsDatabase
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "&Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click_1);
             // 
             // btnDelete
             // 
@@ -85,6 +87,7 @@ namespace CarsDatabase
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "&Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
             // 
             // btnSearch
             // 
@@ -179,107 +182,107 @@ namespace CarsDatabase
             this.label1.TabIndex = 11;
             this.label1.Text = "Bowman Car Hire";
             // 
-            // label2
+            // frmVehicleRegistrationNumberLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 114);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(214, 20);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Vehicle registration number";
+            this.frmVehicleRegistrationNumberLabel.AutoSize = true;
+            this.frmVehicleRegistrationNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.frmVehicleRegistrationNumberLabel.Location = new System.Drawing.Point(12, 114);
+            this.frmVehicleRegistrationNumberLabel.Name = "frmVehicleRegistrationNumberLabel";
+            this.frmVehicleRegistrationNumberLabel.Size = new System.Drawing.Size(214, 20);
+            this.frmVehicleRegistrationNumberLabel.TabIndex = 12;
+            this.frmVehicleRegistrationNumberLabel.Text = "Vehicle registration number";
             // 
-            // label3
+            // frmMakeLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 147);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 20);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Make";
+            this.frmMakeLabel.AutoSize = true;
+            this.frmMakeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.frmMakeLabel.Location = new System.Drawing.Point(12, 147);
+            this.frmMakeLabel.Name = "frmMakeLabel";
+            this.frmMakeLabel.Size = new System.Drawing.Size(49, 20);
+            this.frmMakeLabel.TabIndex = 13;
+            this.frmMakeLabel.Text = "Make";
             // 
-            // label4
+            // frmEngineSizeLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 180);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 20);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Engine Size";
+            this.frmEngineSizeLabel.AutoSize = true;
+            this.frmEngineSizeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.frmEngineSizeLabel.Location = new System.Drawing.Point(12, 180);
+            this.frmEngineSizeLabel.Name = "frmEngineSizeLabel";
+            this.frmEngineSizeLabel.Size = new System.Drawing.Size(98, 20);
+            this.frmEngineSizeLabel.TabIndex = 14;
+            this.frmEngineSizeLabel.Text = "Engine Size";
             // 
-            // label5
+            // frmDateRegisteredLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 215);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 20);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Date registered";
+            this.frmDateRegisteredLabel.AutoSize = true;
+            this.frmDateRegisteredLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.frmDateRegisteredLabel.Location = new System.Drawing.Point(12, 215);
+            this.frmDateRegisteredLabel.Name = "frmDateRegisteredLabel";
+            this.frmDateRegisteredLabel.Size = new System.Drawing.Size(164, 25);
+            this.frmDateRegisteredLabel.TabIndex = 15;
+            this.frmDateRegisteredLabel.Text = "Date Registered";
             // 
-            // label6
+            // frmRentalPerDayLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 247);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(123, 20);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Rental Per Day";
+            this.frmRentalPerDayLabel.AutoSize = true;
+            this.frmRentalPerDayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.frmRentalPerDayLabel.Location = new System.Drawing.Point(12, 247);
+            this.frmRentalPerDayLabel.Name = "frmRentalPerDayLabel";
+            this.frmRentalPerDayLabel.Size = new System.Drawing.Size(123, 20);
+            this.frmRentalPerDayLabel.TabIndex = 16;
+            this.frmRentalPerDayLabel.Text = "Rental Per Day";
             // 
-            // label7
+            // frmAvailableLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 279);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 20);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Available";
+            this.frmAvailableLabel.AutoSize = true;
+            this.frmAvailableLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.frmAvailableLabel.Location = new System.Drawing.Point(12, 279);
+            this.frmAvailableLabel.Name = "frmAvailableLabel";
+            this.frmAvailableLabel.Size = new System.Drawing.Size(76, 20);
+            this.frmAvailableLabel.TabIndex = 17;
+            this.frmAvailableLabel.Text = "Available";
             // 
-            // textBox1
+            // frmVehicleRegistrationNumber
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(263, 114);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(206, 22);
-            this.textBox1.TabIndex = 18;
-            this.textBox1.Text = "TH237TPL";
+            this.frmVehicleRegistrationNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.frmVehicleRegistrationNumber.Location = new System.Drawing.Point(263, 114);
+            this.frmVehicleRegistrationNumber.Name = "frmVehicleRegistrationNumber";
+            this.frmVehicleRegistrationNumber.Size = new System.Drawing.Size(206, 22);
+            this.frmVehicleRegistrationNumber.TabIndex = 18;
+            this.frmVehicleRegistrationNumber.Text = "TH237TPL";
             // 
-            // textBox3
+            // frmEngineSize
             // 
-            this.textBox3.Location = new System.Drawing.Point(263, 178);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(206, 22);
-            this.textBox3.TabIndex = 20;
-            this.textBox3.Text = "1.6L";
+            this.frmEngineSize.Location = new System.Drawing.Point(263, 178);
+            this.frmEngineSize.Name = "frmEngineSize";
+            this.frmEngineSize.Size = new System.Drawing.Size(206, 22);
+            this.frmEngineSize.TabIndex = 20;
+            this.frmEngineSize.Text = "1.6L";
             // 
-            // textBox4
+            // frmDateReg
             // 
-            this.textBox4.Location = new System.Drawing.Point(263, 213);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(121, 22);
-            this.textBox4.TabIndex = 21;
-            this.textBox4.Text = "11/05/2023";
+            this.frmDateReg.Location = new System.Drawing.Point(263, 213);
+            this.frmDateReg.Name = "frmDateReg";
+            this.frmDateReg.Size = new System.Drawing.Size(121, 22);
+            this.frmDateReg.TabIndex = 21;
+            this.frmDateReg.Text = "11/05/2023";
             // 
-            // textBox5
+            // frmRentalPerDay
             // 
-            this.textBox5.Location = new System.Drawing.Point(263, 247);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(121, 22);
-            this.textBox5.TabIndex = 22;
-            this.textBox5.Text = "€110.00";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.frmRentalPerDay.Location = new System.Drawing.Point(263, 247);
+            this.frmRentalPerDay.Name = "frmRentalPerDay";
+            this.frmRentalPerDay.Size = new System.Drawing.Size(121, 22);
+            this.frmRentalPerDay.TabIndex = 22;
+            this.frmRentalPerDay.Text = "€110.00";
+            this.frmRentalPerDay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox2
+            // frmMake
             // 
-            this.textBox2.Location = new System.Drawing.Point(263, 147);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(304, 22);
-            this.textBox2.TabIndex = 19;
-            this.textBox2.Text = "Mercedes";
+            this.frmMake.Location = new System.Drawing.Point(263, 147);
+            this.frmMake.Name = "frmMake";
+            this.frmMake.Size = new System.Drawing.Size(304, 22);
+            this.frmMake.TabIndex = 19;
+            this.frmMake.Text = "Mercedes";
             // 
             // recordCount
             // 
@@ -295,19 +298,19 @@ namespace CarsDatabase
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(712, 465);
+            this.ClientSize = new System.Drawing.Size(569, 372);
             this.Controls.Add(this.recordCount);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.frmRentalPerDay);
+            this.Controls.Add(this.frmDateReg);
+            this.Controls.Add(this.frmEngineSize);
+            this.Controls.Add(this.frmMake);
+            this.Controls.Add(this.frmVehicleRegistrationNumber);
+            this.Controls.Add(this.frmAvailableLabel);
+            this.Controls.Add(this.frmRentalPerDayLabel);
+            this.Controls.Add(this.frmDateRegisteredLabel);
+            this.Controls.Add(this.frmEngineSizeLabel);
+            this.Controls.Add(this.frmMakeLabel);
+            this.Controls.Add(this.frmVehicleRegistrationNumberLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.frmAvailable);
             this.Controls.Add(this.btnLast);
@@ -348,17 +351,17 @@ namespace CarsDatabase
         private System.Windows.Forms.Button btnLast;
         private System.Windows.Forms.CheckBox frmAvailable;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label frmVehicleRegistrationNumberLabel;
+        private System.Windows.Forms.Label frmMakeLabel;
+        private System.Windows.Forms.Label frmEngineSizeLabel;
+        private System.Windows.Forms.Label frmDateRegisteredLabel;
+        private System.Windows.Forms.Label frmRentalPerDayLabel;
+        private System.Windows.Forms.Label frmAvailableLabel;
+        private System.Windows.Forms.TextBox frmVehicleRegistrationNumber;
+        private System.Windows.Forms.TextBox frmEngineSize;
+        private System.Windows.Forms.TextBox frmDateReg;
+        private System.Windows.Forms.TextBox frmRentalPerDay;
         private System.Windows.Forms.TextBox recordCount;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox frmMake;
     }
 }

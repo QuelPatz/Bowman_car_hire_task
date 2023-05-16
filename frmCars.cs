@@ -138,7 +138,7 @@ namespace CarsDatabase
                 databaseConnection.Close(); //closing connection to database
 
                 frmVehicleReg.Text = Convert.ToString(dt.Rows[0].ItemArray[1]);
-                frmMake.Text = Convert.ToString(dt.Rows[0].ItemArray[2]);
+                frmMakeLabel.Text = Convert.ToString(dt.Rows[0].ItemArray[2]);
                 frmEngine.Text = Convert.ToString(dt.Rows[0].ItemArray[3]);
                 frmDateReg.Text = Convert.ToString(dt.Rows[0].ItemArray[4]);
                 frmRentalPerDay.Text = Convert.ToString(dt.Rows[0].ItemArray[5]);
@@ -157,7 +157,7 @@ namespace CarsDatabase
                 updatePanel.Visible = false;
 
                 details.VehicleReg = frmVehicleReg.Text;
-                details.Make = frmMake.Text;
+                details.Make = frmMakeLabel.Text;
                 details.Engine = frmEngine.Text;
                 details.DateReg = frmDateReg.Text;
                 details.RentalPerDay = frmRentalPerDay.Text;
@@ -192,9 +192,9 @@ namespace CarsDatabase
             updatePanel.Visible = true;
         }
         private int availability;
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnAdd_Click_1(object sender, EventArgs e)
         {
-            btnAdd openAddForm = new frmAdd();
+            frmAdd openAddForm = new frmAdd();
             this.Hide();
             openAddForm.ShowDialog();
             this.Close();
@@ -233,7 +233,7 @@ namespace CarsDatabase
                 return;
             }
         }
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Click_1(object sender, EventArgs e)
         {
             DialogResult toDelete = MessageBox.Show($"Are you sure you'd like to delete this record\n" +
                 $"\nVehicle Registration: {details.VehicleReg}\n" +
@@ -276,6 +276,11 @@ namespace CarsDatabase
                     MessageBox.Show("Cannot delete data");
                 }
             }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
