@@ -40,7 +40,7 @@ namespace CarsDatabase
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnLast = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.frmAvailable = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,11 +48,11 @@ namespace CarsDatabase
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.frmVehicleReg = new System.Windows.Forms.TextBox();
-            this.frmEngineSize = new System.Windows.Forms.TextBox();
-            this.FormDateRegistered = new System.Windows.Forms.TextBox();
-            this.frmRentalPerDay = new System.Windows.Forms.TextBox();
-            this.frmMake = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.recordCount = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -65,7 +65,6 @@ namespace CarsDatabase
             this.btnUpdate.TabIndex = 0;
             this.btnUpdate.Text = "&Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -128,7 +127,6 @@ namespace CarsDatabase
             this.btnFirst.TabIndex = 6;
             this.btnFirst.Text = "First";
             this.btnFirst.UseVisualStyleBackColor = true;
-            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // btnPrevious
             // 
@@ -139,7 +137,6 @@ namespace CarsDatabase
             this.btnPrevious.TabIndex = 7;
             this.btnPrevious.Text = "Previous";
             this.btnPrevious.UseVisualStyleBackColor = true;
-            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnNext
             // 
@@ -150,7 +147,6 @@ namespace CarsDatabase
             this.btnNext.TabIndex = 8;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnLast
             // 
@@ -161,18 +157,17 @@ namespace CarsDatabase
             this.btnLast.TabIndex = 9;
             this.btnLast.Text = "Last";
             this.btnLast.UseVisualStyleBackColor = true;
-            this.btnLast.Click += new System.EventHandler(this.btnLast_Click_1);
             // 
-            // checkBox1
+            // frmAvailable
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(263, 282);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(18, 17);
-            this.checkBox1.TabIndex = 10;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.frmAvailable.AutoSize = true;
+            this.frmAvailable.Checked = true;
+            this.frmAvailable.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.frmAvailable.Location = new System.Drawing.Point(263, 282);
+            this.frmAvailable.Name = "frmAvailable";
+            this.frmAvailable.Size = new System.Drawing.Size(18, 17);
+            this.frmAvailable.TabIndex = 10;
+            this.frmAvailable.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -220,9 +215,9 @@ namespace CarsDatabase
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(12, 215);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(164, 25);
+            this.label5.Size = new System.Drawing.Size(125, 20);
             this.label5.TabIndex = 15;
-            this.label5.Text = "Date Registered";
+            this.label5.Text = "Date registered";
             // 
             // label6
             // 
@@ -244,70 +239,69 @@ namespace CarsDatabase
             this.label7.TabIndex = 17;
             this.label7.Text = "Available";
             // 
-            // frmVehicleReg
+            // textBox1
             // 
-            this.frmVehicleReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frmVehicleReg.Location = new System.Drawing.Point(263, 114);
-            this.frmVehicleReg.Name = "frmVehicleReg";
-            this.frmVehicleReg.Size = new System.Drawing.Size(206, 22);
-            this.frmVehicleReg.TabIndex = 18;
-            this.frmVehicleReg.Text = "TH237TPL";
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(263, 114);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(206, 22);
+            this.textBox1.TabIndex = 18;
+            this.textBox1.Text = "TH237TPL";
             // 
-            // frmEngineSize
+            // textBox3
             // 
-            this.frmEngineSize.Location = new System.Drawing.Point(263, 178);
-            this.frmEngineSize.Name = "frmEngineSize";
-            this.frmEngineSize.Size = new System.Drawing.Size(206, 22);
-            this.frmEngineSize.TabIndex = 20;
-            this.frmEngineSize.Text = "1.6L";
+            this.textBox3.Location = new System.Drawing.Point(263, 178);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(206, 22);
+            this.textBox3.TabIndex = 20;
+            this.textBox3.Text = "1.6L";
             // 
-            // FormDateRegistered
+            // textBox4
             // 
-            this.FormDateRegistered.Location = new System.Drawing.Point(263, 213);
-            this.FormDateRegistered.Name = "FormDateRegistered";
-            this.FormDateRegistered.Size = new System.Drawing.Size(121, 22);
-            this.FormDateRegistered.TabIndex = 21;
-            this.FormDateRegistered.Text = "11/05/2023";
+            this.textBox4.Location = new System.Drawing.Point(263, 213);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(121, 22);
+            this.textBox4.TabIndex = 21;
+            this.textBox4.Text = "11/05/2023";
             // 
-            // frmRentalPerDay
+            // textBox5
             // 
-            this.frmRentalPerDay.Location = new System.Drawing.Point(263, 247);
-            this.frmRentalPerDay.Name = "frmRentalPerDay";
-            this.frmRentalPerDay.Size = new System.Drawing.Size(121, 22);
-            this.frmRentalPerDay.TabIndex = 22;
-            this.frmRentalPerDay.Text = "€110.00";
-            this.frmRentalPerDay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox5.Location = new System.Drawing.Point(263, 247);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(121, 22);
+            this.textBox5.TabIndex = 22;
+            this.textBox5.Text = "€110.00";
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // frmMake
+            // textBox2
             // 
-            this.frmMake.Location = new System.Drawing.Point(263, 147);
-            this.frmMake.Name = "frmMake";
-            this.frmMake.Size = new System.Drawing.Size(304, 22);
-            this.frmMake.TabIndex = 19;
-            this.frmMake.Text = "Mercedes";
+            this.textBox2.Location = new System.Drawing.Point(263, 147);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(304, 22);
+            this.textBox2.TabIndex = 19;
+            this.textBox2.Text = "Mercedes";
             // 
             // recordCount
             // 
             this.recordCount.Location = new System.Drawing.Point(240, 407);
             this.recordCount.Name = "recordCount";
             this.recordCount.Size = new System.Drawing.Size(121, 22);
-            this.recordCount.TabIndex = 23;
+            this.recordCount.TabIndex = 22;
             this.recordCount.Text = "1 to 15";
             this.recordCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.recordCount.TextChanged += new System.EventHandler(this.recordCount_TextChanged);
             // 
             // frmCars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(709, 456);
+            this.ClientSize = new System.Drawing.Size(712, 465);
             this.Controls.Add(this.recordCount);
-            this.Controls.Add(this.frmRentalPerDay);
-            this.Controls.Add(this.FormDateRegistered);
-            this.Controls.Add(this.frmEngineSize);
-            this.Controls.Add(this.frmMake);
-            this.Controls.Add(this.frmVehicleReg);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -315,7 +309,7 @@ namespace CarsDatabase
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.frmAvailable);
             this.Controls.Add(this.btnLast);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrevious);
@@ -329,7 +323,7 @@ namespace CarsDatabase
             this.Name = "frmCars";
             this.ShowIcon = false;
             this.Text = "Task A";
-            this.Load += new System.EventHandler(this.Form1_load);
+            this.Load += new System.EventHandler(this.frmCars_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,7 +346,7 @@ namespace CarsDatabase
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnLast;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox frmAvailable;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -360,11 +354,11 @@ namespace CarsDatabase
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox frmVehicleReg;
-        private System.Windows.Forms.TextBox frmEngineSize;
-        private System.Windows.Forms.TextBox FormDateRegistered;
-        private System.Windows.Forms.TextBox frmRentalPerDay;
-        private System.Windows.Forms.TextBox frmMake;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox recordCount;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

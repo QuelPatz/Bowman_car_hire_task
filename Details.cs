@@ -8,7 +8,7 @@ namespace CarsDatabase
 {
     class Details
     {
-        string VehicleReg;
+        string vehicleReg;
         string make;
         string engine;
         string dateReg;
@@ -56,12 +56,11 @@ namespace CarsDatabase
                 }
             }
         }
-            public string sAvailable
-            {
-                get { return sAvailable; }
-                set { sAvailable = value; }
-            }
+        public string SAvailable
+        {
+            get { return sAvailable; }
+            set { sAvailable = value; }
+        }
 
-        public object RentalPerDay { get; internal set; }
     }
 }

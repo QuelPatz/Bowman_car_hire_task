@@ -92,7 +92,7 @@ namespace CarsDatabase
 
         private void recordCount_TextChanged(object sender, EventArgs e)
         {
-            recordCount.Text = $"{recordContolNo} of {totalRecords}";
+            recordCount.Text = $"{recordControlNo} of {totalRecords}";
         }
 
         private void Form1_load(object sender, EventArgs e)
@@ -107,12 +107,12 @@ namespace CarsDatabase
                 MessageBox.Show("Can't load database. Check database connection");
             }
 
-            btnUpdate.Enable = false; //Update button unusable until use conditions are met
-            btnCancel.Enable = false; //Cancel button unusable until use conditions are met
+            btnUpdate.Enabled = false; //Update button unusable until use conditions are met
+            btnCancel.Enabled = false; //Cancel button unusable until use conditions are met
             updatePanel.Visible = false; //Panel button unusable until use conditions are met
 
 
-            if (btnUpdate.Enable == true)
+            if (btnUpdate.Enabled == true)
             {
                 updatePanel.Visible = true;
             }
@@ -134,8 +134,8 @@ namespace CarsDatabase
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
                 adapter.Fill(dt);
 
-                frmDataGrid.DataSourde = dt;
-                databaseConnection.Close();
+                frmDataGrid.DataSource = dt; //filling datagrid with data
+                databaseConnection.Close(); //closing connection to database
 
                 frmVehicleReg.Text = Convert.ToString(dt.Rows[0].ItemArray[1]);
                 frmMake.Text = Convert.ToString(dt.Rows[0].ItemArray[2]);
@@ -144,16 +144,16 @@ namespace CarsDatabase
                 frmRentalPerDay.Text = Convert.ToString(dt.Rows[0].ItemArray[5]);
                 int available = Convert.ToInt32(dt.Rows[0].ItemArray[6]);
                 if (available == 1)
-                {
+                {// If database returns 1 then we check the checkbox
                     frmAvailable.Checked = true;
                 }
                 else
-                {
+                {// If databesa returns 0 then we uncheck the checkbox
                     frmAvailable.Checked = false;
                 }
 
-                btnUpadate.Enable = false;
-                btnCancel.Enable = false;
+                btnUpdate.Enabled = false;
+                btnCancel.Enabled = false;
                 updatePanel.Visible = false;
 
                 details.VehicleReg = frmVehicleReg.Text;
@@ -165,7 +165,7 @@ namespace CarsDatabase
             }
             catch (Exception)
             {
-                MessageBox.Show("Cannot find data");
+                MessageBox.Show("Cannot find data"); // If getdata fails to work this message box appears
             }
         }
 
@@ -174,7 +174,7 @@ namespace CarsDatabase
             Close();
         }
 
-        private void vehicleTooltip_Popup(object sender, EventArgs e)
+        private void vehicleTooltip_Popup(object sender, EventArgs e)  //review this button
         {
 
         }
@@ -185,11 +185,73 @@ namespace CarsDatabase
             searchForm.ShowDialog();
         }
 
-        private void frmVehicleReg_TextChange(object sender, EventArgs e)
+        private void frmVehicleReg(object sender, EventArgs e)
         {
             btnUpdate.Enabled = true;
             btnCancel.Enabled = true;
             updatePanel.Visible = true;
+        }
+        private int availability;
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            btnAdd openAddForm = new frmAdd();
+            this.Hide();
+            openAddForm.ShowDialog();
+            this.Close();
+        }
+        private void updateRecord()
+        {//UPDATES RECORD BASED ON INFORMATION IN TEXT FIELDS
+            int offsetNumber = recordControlNo - 1;
+            try
+            {
+                if(frmAvailable.Checked == true)
+                {
+                    availability = 1;
+                }
+                if (frmAvailable.Checked == false)
+                {
+                    availability = 0;
+                }
+                string updateARecord = $@"UPDATE tblCar SET VehicleRehNo = '" + frmVehicleReg.Text + "'," +
+                    "Make" + frmMake.Text + "',EngineSize =='" + frmEngineSize.Text + "'," +
+                    "DataRegistered== '" + frmDateReg.Text + "'," +
+                    "RentalPerDay = '" + frmRentalPerDay.Text + "'," +
+                    "Available = '" + availability + "" +
+                    "'WHERE Vehicle from tblCar limit 1 OFFSET'"
+                    + offsetNumber + "');";
+                databaseConnection.Open();
+                SQLiteCommand insertSQL = new SQLiteCommand(databaseConnection);
+                insertSQL.CommandText = updateARecord;
+                insertSQL.ExecuteNonQuery();
+                databaseConnection.Close();
+                recTotal();
+                getData();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Canoot update data");
+                return;
+            }
+        }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult toDelete = MessageBox.Show($"Are you sure you'd like to delete this record\n" +
+                $"\nVehicle Registration: {details.VehicleReg}\n" +
+                $"\nMake: {details.Make}\n" +
+                $"\nEngine Size: {details.Engine}\n" +
+                $"\nDate Registered: {details.DateReg}\n" +
+                $"\nRental Per Day: {details.RentalPerDay}\n" +
+                $"\nAvailable: {details.SAvailable}" +
+                $"Delete Record", MessageBoxButtons.YesNo);
+            if (toDelete == DialogResult.Yes)
+            {
+                deleteData();
+                MessageBox.Show("Record Deleted");
+            }
+            else if (toDelete == DialogResult.No)
+            {
+                MessageBox.Show("No record has been deleted.");
+            }
         }
 
         private void deleteData()
@@ -216,9 +278,5 @@ namespace CarsDatabase
             }
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
