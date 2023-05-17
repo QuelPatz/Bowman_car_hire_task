@@ -280,7 +280,33 @@ namespace CarsDatabase
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
+            DialogResult toUpdate = MessageBox.Show("Are you sure you'd like to Update this record?", "Update Record", MessageBox.YesNo);
+            if (toUpdate == DialogResult.Yes)
+            {
+                updateRecord();
+                MessageBox.Show("Record updated.");
+            }
+            else if (toUpdate == DialogResult.No)
+            {
+                MessageBox.Show("No record has been deleted.");
+            }
+            frmMake.BackColor = Color.White;
+            frmEngineSize.BackColor = Color.White;
+            frmDateReg.BackColor = Color.White;
+            frmAvailable.BackColor = Color.White;
+            frmRentalPerDay.BackColor = Color.White;
+        }
+                private void btnCancel_Click(object sender, EventArgs e)
+        {
+            getData();
+            btnUpdate.Enabled = false;
+            btnCancel.Enabled = false;
+            updatePanel.Visible = false;
+            frmMake.BackColor = Color.White;
+            frmEngineSize.BackColor = Color.White;
+            frmDateReg.BackColor = Color.White;
+            frmAvailable.BackColor = Color.White;
+            frmRentalPerDay.BackColor = Color.White;
         }
 
     }
