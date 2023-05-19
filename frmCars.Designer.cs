@@ -54,6 +54,7 @@ namespace CarsDatabase
             this.frmRentalPerDay = new System.Windows.Forms.TextBox();
             this.frmMake = new System.Windows.Forms.TextBox();
             this.recordCount = new System.Windows.Forms.TextBox();
+            this.updatePanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnUpdate
@@ -76,7 +77,7 @@ namespace CarsDatabase
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "&Add";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click_1);
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
@@ -87,7 +88,7 @@ namespace CarsDatabase
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "&Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSearch
             // 
@@ -109,6 +110,7 @@ namespace CarsDatabase
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnExit
             // 
@@ -119,7 +121,7 @@ namespace CarsDatabase
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "E&xit";
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click_1);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnFirst
             // 
@@ -130,6 +132,7 @@ namespace CarsDatabase
             this.btnFirst.TabIndex = 6;
             this.btnFirst.Text = "First";
             this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // btnPrevious
             // 
@@ -140,6 +143,7 @@ namespace CarsDatabase
             this.btnPrevious.TabIndex = 7;
             this.btnPrevious.Text = "Previous";
             this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnNext
             // 
@@ -150,6 +154,7 @@ namespace CarsDatabase
             this.btnNext.TabIndex = 8;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnLast
             // 
@@ -160,6 +165,7 @@ namespace CarsDatabase
             this.btnLast.TabIndex = 9;
             this.btnLast.Text = "Last";
             this.btnLast.UseVisualStyleBackColor = true;
+            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
             // 
             // frmAvailable
             // 
@@ -186,7 +192,7 @@ namespace CarsDatabase
             // 
             this.frmVehicleRegistrationNumberLabel.AutoSize = true;
             this.frmVehicleRegistrationNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frmVehicleRegistrationNumberLabel.Location = new System.Drawing.Point(12, 114);
+            this.frmVehicleRegistrationNumberLabel.Location = new System.Drawing.Point(43, 116);
             this.frmVehicleRegistrationNumberLabel.Name = "frmVehicleRegistrationNumberLabel";
             this.frmVehicleRegistrationNumberLabel.Size = new System.Drawing.Size(214, 20);
             this.frmVehicleRegistrationNumberLabel.TabIndex = 12;
@@ -196,7 +202,7 @@ namespace CarsDatabase
             // 
             this.frmMakeLabel.AutoSize = true;
             this.frmMakeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frmMakeLabel.Location = new System.Drawing.Point(12, 147);
+            this.frmMakeLabel.Location = new System.Drawing.Point(43, 149);
             this.frmMakeLabel.Name = "frmMakeLabel";
             this.frmMakeLabel.Size = new System.Drawing.Size(49, 20);
             this.frmMakeLabel.TabIndex = 13;
@@ -206,7 +212,7 @@ namespace CarsDatabase
             // 
             this.frmEngineSizeLabel.AutoSize = true;
             this.frmEngineSizeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frmEngineSizeLabel.Location = new System.Drawing.Point(12, 180);
+            this.frmEngineSizeLabel.Location = new System.Drawing.Point(43, 182);
             this.frmEngineSizeLabel.Name = "frmEngineSizeLabel";
             this.frmEngineSizeLabel.Size = new System.Drawing.Size(98, 20);
             this.frmEngineSizeLabel.TabIndex = 14;
@@ -216,9 +222,9 @@ namespace CarsDatabase
             // 
             this.frmDateRegisteredLabel.AutoSize = true;
             this.frmDateRegisteredLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frmDateRegisteredLabel.Location = new System.Drawing.Point(12, 215);
+            this.frmDateRegisteredLabel.Location = new System.Drawing.Point(43, 217);
             this.frmDateRegisteredLabel.Name = "frmDateRegisteredLabel";
-            this.frmDateRegisteredLabel.Size = new System.Drawing.Size(164, 25);
+            this.frmDateRegisteredLabel.Size = new System.Drawing.Size(131, 20);
             this.frmDateRegisteredLabel.TabIndex = 15;
             this.frmDateRegisteredLabel.Text = "Date Registered";
             // 
@@ -226,7 +232,7 @@ namespace CarsDatabase
             // 
             this.frmRentalPerDayLabel.AutoSize = true;
             this.frmRentalPerDayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frmRentalPerDayLabel.Location = new System.Drawing.Point(12, 247);
+            this.frmRentalPerDayLabel.Location = new System.Drawing.Point(43, 249);
             this.frmRentalPerDayLabel.Name = "frmRentalPerDayLabel";
             this.frmRentalPerDayLabel.Size = new System.Drawing.Size(123, 20);
             this.frmRentalPerDayLabel.TabIndex = 16;
@@ -236,7 +242,7 @@ namespace CarsDatabase
             // 
             this.frmAvailableLabel.AutoSize = true;
             this.frmAvailableLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frmAvailableLabel.Location = new System.Drawing.Point(12, 279);
+            this.frmAvailableLabel.Location = new System.Drawing.Point(43, 281);
             this.frmAvailableLabel.Name = "frmAvailableLabel";
             this.frmAvailableLabel.Size = new System.Drawing.Size(76, 20);
             this.frmAvailableLabel.TabIndex = 17;
@@ -292,13 +298,23 @@ namespace CarsDatabase
             this.recordCount.TabIndex = 22;
             this.recordCount.Text = "1 to 15";
             this.recordCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.recordCount.Click += new System.EventHandler(this.recordCount_TextChanged_1);
+            this.recordCount.TextChanged += new System.EventHandler(this.recordCount_TextChanged_1);
+            // 
+            // updatePanel
+            // 
+            this.updatePanel.BackColor = System.Drawing.Color.Transparent;
+            this.updatePanel.Location = new System.Drawing.Point(24, 102);
+            this.updatePanel.Name = "updatePanel";
+            this.updatePanel.Size = new System.Drawing.Size(562, 235);
+            this.updatePanel.TabIndex = 23;
             // 
             // frmCars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(569, 372);
+            this.ClientSize = new System.Drawing.Size(710, 458);
             this.Controls.Add(this.recordCount);
             this.Controls.Add(this.frmRentalPerDay);
             this.Controls.Add(this.frmDateReg);
@@ -323,10 +339,12 @@ namespace CarsDatabase
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.updatePanel);
             this.Name = "frmCars";
             this.ShowIcon = false;
             this.Text = "Task A";
-            this.Load += new System.EventHandler(this.frmCars_Load);
+            this.Load += new System.EventHandler(this.frmCars_Load_1);
+            this.Click += new System.EventHandler(this.frmCars_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,5 +381,6 @@ namespace CarsDatabase
         private System.Windows.Forms.TextBox frmRentalPerDay;
         private System.Windows.Forms.TextBox recordCount;
         private System.Windows.Forms.TextBox frmMake;
+        private System.Windows.Forms.Panel updatePanel;
     }
 }

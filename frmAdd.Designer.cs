@@ -102,9 +102,9 @@
             this.frmVehicleRegLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.frmVehicleRegLabel.Location = new System.Drawing.Point(40, 51);
             this.frmVehicleRegLabel.Name = "frmVehicleRegLabel";
-            this.frmVehicleRegLabel.Size = new System.Drawing.Size(214, 20);
+            this.frmVehicleRegLabel.Size = new System.Drawing.Size(279, 25);
             this.frmVehicleRegLabel.TabIndex = 19;
-            this.frmVehicleRegLabel.Text = "Vehicle registration number";
+            this.frmVehicleRegLabel.Text = "Vehicle Registration Number";
             // 
             // frmDateRegistered
             // 
@@ -153,7 +153,7 @@
             // 
             // frmRentalPerDay
             // 
-            this.frmRentalPerDay.Location = new System.Drawing.Point(275, 210);
+            this.frmRentalPerDay.Location = new System.Drawing.Point(275, 213);
             this.frmRentalPerDay.Name = "frmRentalPerDay";
             this.frmRentalPerDay.Size = new System.Drawing.Size(145, 22);
             this.frmRentalPerDay.TabIndex = 30;
@@ -196,7 +196,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 390);
+            this.ClientSize = new System.Drawing.Size(481, 312);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnClear);

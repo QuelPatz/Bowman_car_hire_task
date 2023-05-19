@@ -13,7 +13,7 @@ namespace CarsDatabase
 {
     public partial class frmSearch : Form
     {
-        SQLiteConnection databaseConnection = new SQLiteConnection(@"datasource = c:\Projects\it_course\Jennifer_2_C#\data\hire.db"); //connects to the Database
+        SQLiteConnection databaseConnection = new SQLiteConnection(@"data source = c:\data\hire.db"); //connects to the Database
         public frmSearch()
         {
             InitializeComponent();
@@ -78,10 +78,10 @@ namespace CarsDatabase
                     cboField.Text = "=";
                     findData = $@"SELECT * FROM tblcar WHERE VehicleRegNo = '{valueTextbox.Text}'";
                 }
-                SQLiteConnection connect = new SQLiteConnection(@"data source = C:\Projects\it_course\Jennifer_2_C#\data\hire.db");
+                SQLiteConnection connect = new SQLiteConnection(@"data source = C:\data\hire.db");
                 connect.Open();
                 string query = findData;
-                SQLiteCommand cmd = new SQLiteCommand(query, connect);
+                SQLiteCommand cmd = new SQLiteCommand(query, databaseConnection);
                 DataTable dt = new DataTable();
                 SQLiteDataAdapter adapter2 = new SQLiteDataAdapter(cmd);
                 adapter2.Fill(dt);
@@ -89,10 +89,7 @@ namespace CarsDatabase
                 connect.Close();
             }
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
         private void frmDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -109,6 +106,7 @@ namespace CarsDatabase
         {
             Close();
         }
+        //not using displayDb
         public void displayDb()
         {
 

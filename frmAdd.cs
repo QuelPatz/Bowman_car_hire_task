@@ -13,7 +13,7 @@ namespace CarsDatabase
 {
     public partial class frmAdd : Form
     {
-        SQLiteConnection connect = new SQLiteConnection(@"datasource = c:\Projects\it_course\Jennifer_2_C#\data\hire.db"); //connects to the Database
+        SQLiteConnection databaseConnection = new SQLiteConnection(@"data source = c:\data\hire.db"); //connects to the Database
 
         public frmAdd()
         {
@@ -21,21 +21,50 @@ namespace CarsDatabase
         }
         private void frmAdd_Load(object sender, EventArgs e)
         {
+            if (frmVehicleReg.Text != "" && frmMake.Text != "" && frmDateRegistered.Text != "" && frmEngineSize.Text != "" && frmRentalPerDay.Value != 0)
+            {
+                try
+                {
+                    string isRegInDB = $@"SELECT VehicleRegNo FROM tblCar WHERE VehicleRegNo = '" + frmVehicleReg.Text + "'";
+                    databaseConnection.Open();
 
+                    var command = databaseConnection.CreateCommand();
+                    command.CommandText = isRegInDB;
+
+                    using (var reader = command)
+                    {
+
+                    }
+
+                    string addARecord = $@"INSERT INTO tblCar (VehicleRegNo, Make, EngineSize, DateRegistered, RentalPerDay, Available)";
+
+                    SQLiteCommand insertSQL = new SQLiteCommand(isRegInDB, databaseConnection);
+                    DataTable dt = new DataTable();
+                    SQLiteDataAdapter adapter3 = new SQLiteDataAdapter(insertSQL);
+                    adapter3.Fill(dt);
+                    frmDataGrid.DataSource = dt;
+                    databaseConnection.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Cannot ");
+                    return;
+                }
+            }
         }
         private int Availability;
         private string returnedReg;
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (frmVehicleReg.Text != "" && frmMake.Text != "" && frmDateReg.Text != "" && frmEngine.Text != "" && frmRentalPerDay.Value != 0)
+            if (frmVehicleReg.Text != "" && frmMake.Text != "" && frmDateRegistered.Text != "" && frmEngineSize.Text != "" && frmRentalPerDay.Value != 0)
             {
                 try
                 {
                     //STRING USED FOR DB
                     string isRegInDb = $@"SELECT VahicleRegNo FROM tblCar WHERE VehicleRegNo = '" + frmVehicleReg.Text + "'";
-                    connect.Open();
+                    databaseConnection.Open();
 
-                    var command = connect.CreateCommand();
+                    var command = databaseConnection.CreateCommand();
                     command.CommandText = isRegInDb;
 
                     using (var reader = command.ExecuteReader())
@@ -61,11 +90,12 @@ namespace CarsDatabase
                                 Availability = 0;
                             }
                             string addRecord = $@"INSERT INTO tblCar (VehicleRegNo, Make, EngineSize, DateRegistered, RentalPerDay, Available) VALUES
-                                            ('" + frmVehicleReg.Text + "', '" + frmMake.Text + "', '" + frmEngine.Text + "', '" + frmDateReg.Text + "', '" + frmRentalPerDay.Text + "', '" + availability + "')";
-                            SQLiteCommand insertSQL = new SQLiteCommand(addRecord, connect);
+                                            ('" + frmVehicleReg.Text + "', '" + frmMake.Text + "', '" + frmEngineSize.Text + "', '" + frmDateRegistered.Text + "', '" + frmRentalPerDay.Text + "', '" + Availability + "')";
+                            SQLiteCommand insertSQL = new SQLiteCommand(addRecord, databaseConnection);
+                            insertSQL.CommandText = addRecord;
                             insertSQL.ExecuteNonQuery();
                             MessageBox.Show("You have succesfully added a new record to the database");
-                            connect.Close();
+                            databaseConnection.Close();
                         }
 
                     }
@@ -102,10 +132,6 @@ namespace CarsDatabase
         {
 
         }
-        private void frmRentalPerDay_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private void frmAvailable_TextChanged(object sender, EventArgs e)
         {
 
@@ -115,7 +141,7 @@ namespace CarsDatabase
         {
             frmVehicleReg.Text = "";
             frmEngineSize.Text = "";
-            frmDateReg.Text = "";
+            frmDateRegistered.Text = "";
             frmMake.Text = "";
             frmRentalPerDayLabel.Text = 0;
             frmAvailable.Checked = false;
@@ -129,11 +155,9 @@ namespace CarsDatabase
             this.Close();
         }
 
-        private void frmRentalPerDay_ValueChanged(object sender, EventArgs e)
+        private void frmRentalPerDay_TextChanged(object sender, EventArgs e)
         {
 
         }
-
-
     }
 }

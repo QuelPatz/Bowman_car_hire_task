@@ -145,7 +145,6 @@
             this.frmFieldLabel.Size = new System.Drawing.Size(39, 18);
             this.frmFieldLabel.TabIndex = 0;
             this.frmFieldLabel.Text = "Field";
-            this.frmFieldLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // vScrollBar1
             // 
