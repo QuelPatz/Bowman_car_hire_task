@@ -78,19 +78,20 @@ namespace CarsDatabase
                     cboField.Text = "=";
                     findData = $@"SELECT * FROM tblcar WHERE VehicleRegNo = '{valueTextbox.Text}'";
                 }
-                SQLiteConnection connect = new SQLiteConnection(@"data source = C:\data\hire.db");
-                connect.Open();
+                //OPENING DB AND SEARCHING PARAMATERS
+                SQLiteConnection databaseConnection = new SQLiteConnection(@"data source = C:\data\hire.db");
+                databaseConnection.Open();
                 string query = findData;
                 SQLiteCommand cmd = new SQLiteCommand(query, databaseConnection);
                 DataTable dt = new DataTable();
                 SQLiteDataAdapter adapter2 = new SQLiteDataAdapter(cmd);
                 adapter2.Fill(dt);
-                frmDataGrid.DataSource = dt;
-                connect.Close();
+                frmDataGrid.DataSource = dt;  //filling datagrid with data 
+                databaseConnection.Close();
             }
         }
 
-        private void frmDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void frmDataGrid_CellContentClick(object sender, EventArgs e)
         {
 
         }
@@ -125,7 +126,7 @@ namespace CarsDatabase
                 cboOperator.Items.Remove("<=");
                 cboOperator.Items.Remove(">=");
             }
-            if ((cboField.Text == "Engine Size" || cboField.Text == "Rental Per Day") && !cboField.Items.Contains("<") && !cboOperator.Items.Contains(">") && !cboOperator.Contains("<=") && !cboOperator.Items.Contains(">="))
+            if ((cboField.Text == "Engine Size" || cboField.Text == "Rental Per Day") && !cboField.Items.Contains("<") && !cboOperator.Items.Contains(">") && !cboOperator.Items.Contains("<=") && !cboOperator.Items.Contains(">="))
             {
                 cboOperator.Items.Add("<");
                 cboOperator.Items.Add(">");

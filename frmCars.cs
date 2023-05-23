@@ -8,48 +8,45 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
-using Microsoft.Data.Sqlite;
+
 
 namespace CarsDatabase
 {
     public partial class frmCars : Form
     {
-        SQLiteConnection databaseConnection = new SQLiteConnection(@"data source = c:\data\hire.db"); //conncts to the Database
+        SQLiteConnection databaseConnection = new SQLiteConnection(@"data source = c:\data\hire.db"); //connects to the Database
 
         public frmCars()
         {
             InitializeComponent();
         }
-
         private void btnFirst_Click(object sender, EventArgs e)
         {
             recordCounter("first"); //go to first position
             getData(); //get data of current position
         }
-
         private void btnPrevious_Click(object sender, EventArgs e)
         {
             recordCounter("previous"); //go to first position
             getData(); //get data of current position
         }
-
         private void btnNext_Click(object sender, EventArgs e)
         {
             recordCounter("next"); //go to first position
             getData(); //get data of current position
         }
-
         private void btnLast_Click(object sender, EventArgs e)
         {
             recordCounter("last"); //go to first position
             getData(); //get data of current position
         }
+
         int recordControlNo = 1;
         int totalRecords;
 
         public void recTotal()
         {
-            string findTotal = @"SELECT COUNT(*) FROM tblCar"; //SQL Query to find the 
+            string findTotal = @"SELECT COUNT(*) FROM tblCar";
 
             databaseConnection.Open();
             var command = databaseConnection.CreateCommand();
@@ -62,11 +59,10 @@ namespace CarsDatabase
                     totalRecords = total;
                 }
             }
-            recordCount.Text = $"{recordControlNo} of {findTotal}";
+            recordCount.Text = $"{recordControlNo} of {totalRecords}";
             databaseConnection.Close();
 
         }
-
         public void recordCounter(string frmBtn)
         {
 
@@ -87,14 +83,11 @@ namespace CarsDatabase
             if (frmBtn == "last")
             { recordControlNo = totalRecords; }
 
-            recordCount.Text = $"{recordControlNo} of {totalRecords}";
         }
-
         private void recordCount_TextChanged_1(object sender, EventArgs e)
         {
             recordCount.Text = $"{recordControlNo} of {totalRecords}";
         }
-
         private void frmCars_Load_1(object sender, EventArgs e)
         {//This is what happens when form loads
             try
@@ -111,33 +104,27 @@ namespace CarsDatabase
             btnCancel.Enabled = false; //Cancel button unusable until use conditions are met
             updatePanel.Visible = false; //Panel button unusable until use conditions are met
 
-
             if (btnUpdate.Enabled == true)
             {
                 updatePanel.Visible = true;
             }
         }
-
         Details details = new Details();
-
         public void getData()
         {
             int rowPosition = recordControlNo - 1;
 
-
             try
             {
                 databaseConnection.Open();
-                string getDB = $@"SELECT * FROM (SELECT * FROM tblCar LIMIT 1 OFF SET {rowPosition})";
+                string getDB = $@"SELECT * FROM tblCar LIMIT 1 OFF SET {rowPosition}";
                 SQLiteCommand cmd = new SQLiteCommand(getDB, databaseConnection);
                 DataTable dt = new DataTable();
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
                 adapter.Fill(dt);
-
-                frmDataGrid.DataSource = dt; //filling datagrid with data
                 databaseConnection.Close(); //closing connection to database
 
-                frmVehicleReg.Text = Convert.ToString(dt.Rows[0].ItemArray[1]);
+                frmVehicleRegistrationNumber.Text = Convert.ToString(dt.Rows[0].ItemArray[1]);
                 frmMakeLabel.Text = Convert.ToString(dt.Rows[0].ItemArray[2]);
                 frmEngineSize.Text = Convert.ToString(dt.Rows[0].ItemArray[3]);
                 frmDateReg.Text = Convert.ToString(dt.Rows[0].ItemArray[4]);
@@ -156,31 +143,29 @@ namespace CarsDatabase
                 btnCancel.Enabled = false;
                 updatePanel.Visible = false;
 
-                details.VehicleReg = frmVehicleReg.Text;
+                details.VehicleReg = frmVehicleRegistrationNumber.Text;
                 details.Make = frmMakeLabel.Text;
                 details.Engine = frmEngineSize.Text;
                 details.DateReg = frmDateReg.Text;
                 details.RentalPerDay = frmRentalPerDay.Text;
                 details.Available = available;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.StackTrace);
                 MessageBox.Show("Cannot find data"); // If getdata fails to work this message box appears
             }
         }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             frmSearch searchForm = new frmSearch();
             searchForm.ShowDialog();
         }
-
-        private void frmVehicleReg(object sender, EventArgs e)
+        private void frmVehicleRegistrationNumber_TextChanged(object sender, EventArgs e)
         {
             btnUpdate.Enabled = true;
             btnCancel.Enabled = true;
@@ -207,13 +192,7 @@ namespace CarsDatabase
                 {
                     availability = 0;
                 }
-                string updateARecord = $@"UPDATE tblCar SET VehicleRehNo = '" + frmVehicleReg.Text + "'," +
-                    "Make" + frmMake.Text + "',EngineSize =='" + frmEngineSize.Text + "'," +
-                    "DataRegistered== '" + frmDateReg.Text + "'," +
-                    "RentalPerDay = '" + frmRentalPerDay.Text + "'," +
-                    "Available = '" + availability + "" +
-                    "'WHERE Vehicle from tblCar limit 1 OFFSET'"
-                    + offsetNumber + "');";
+                string updateARecord = $@"UPDATE tblCar SET VehicleRegNo = '" + frmVehicleRegistrationNumber.Text + "', Make = '" + frmMake.Text + "', EngineSize ='" + frmEngineSize.Text + "', DataRegistered = '" + frmDateReg.Text + "', RentalPerDay = '" + frmRentalPerDay.Text + "', Available = '" + availability + "'WHERE VehicleRegNo = (SELECT VehicleRegNo from tblCar limit 1 OFFSET" + offsetNumber + ");";
                 databaseConnection.Open();
                 SQLiteCommand insertSQL = new SQLiteCommand(databaseConnection);
                 insertSQL.CommandText = updateARecord;
@@ -230,14 +209,7 @@ namespace CarsDatabase
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult toDelete = MessageBox.Show($"Are you sure you'd like to delete this record\n" +
-                $"\nVehicle Registration: {details.VehicleReg}\n" +
-                $"\nMake: {details.Make}\n" +
-                $"\nEngine Size: {details.Engine}\n" +
-                $"\nDate Registered: {details.DateReg}\n" +
-                $"\nRental Per Day: {details.RentalPerDay}\n" +
-                $"\nAvailable: {details.SAvailable}" +
-                $"Delete Record", MessageBoxButtons.YesNo);
+            DialogResult toDelete = MessageBox.Show($"Are you sure you'd like to delete this record\nVehicle Registration: {details.VehicleReg}\nMake: {details.Make}\nEngine Size: {details.Engine}\nDate Registered: {details.DateReg}\nRental Per Day: {details.RentalPerDay}\nAvailable: {details.Available}", "Delete Record", MessageBoxButtons.YesNo);
             if (toDelete == DialogResult.Yes)
             {
                 deleteData();
@@ -248,34 +220,42 @@ namespace CarsDatabase
                 MessageBox.Show("No record has been deleted.");
             }
         }
-
         private void deleteData()
-        {
-            {//DELETES CURRENT DISPLAYED DATA FROM DATABASE
-                try
-                {
-                    string deleteRecord = $@"DELETE FROM btnCar WHERE VehicleRegNo = '{frmVehicleReg.Text}'";
+        {//DELETES CURRENT DISPLAYED DATA FROM DATABASE
+            try
+            {
+                string deleteRecord = $@"DELETE FROM tblCar WHERE VehicleRegNo = '{frmVehicleRegistrationNumber.Text}'";
 
-                    databaseConnection.Open();
-                    string sendData2 = deleteRecord;
-                    SQLiteCommand deleteSQL = new SQLiteCommand(databaseConnection);
-                    deleteSQL.CommandText = sendData2;
-                    deleteSQL.ExecuteNonQuery();
-                    databaseConnection.Close();
-                    recTotal();
-                    recordCounter("last");
-                    getData();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Cannot delete data");
-                }
+                databaseConnection.Open();
+                string sendData2 = deleteRecord;
+                SQLiteCommand deleteSQL = new SQLiteCommand(databaseConnection);
+                deleteSQL.CommandText = sendData2;
+                deleteSQL.ExecuteNonQuery();
+                databaseConnection.Close();
+                recTotal();
+                recordCounter("last");
+                getData();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Cannot delete data");
             }
         }
-
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            getData();
+            btnUpdate.Enabled = false;
+            btnCancel.Enabled = false;
+            updatePanel.Visible = false;
+            frmMake.BackColor = Color.White;
+            frmEngineSize.BackColor = Color.White;
+            frmDateReg.BackColor = Color.White;
+            frmAvailable.BackColor = Color.White;
+            frmRentalPerDay.BackColor = Color.White;
+        }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            DialogResult toUpdate = MessageBox.Show("Are you sure you'd like to Update this record?", "Update Record", MessageBox.YesNo);
+            DialogResult toUpdate = MessageBox.Show("Are you sure you'd like to Update this record?", "Update Record", MessageBoxButtons.YesNo);
             if (toUpdate == DialogResult.Yes)
             {
                 updateRecord();
@@ -291,18 +271,53 @@ namespace CarsDatabase
             frmAvailable.BackColor = Color.White;
             frmRentalPerDay.BackColor = Color.White;
         }
-
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void frmMake_TextChanged(object sender, EventArgs e)
         {
-            getData();
-            btnUpdate.Enabled = false;
-            btnCancel.Enabled = false;
-            updatePanel.Visible = false;
-            frmMake.BackColor = Color.White;
-            frmEngineSize.BackColor = Color.White;
-            frmDateReg.BackColor = Color.White;
-            frmAvailable.BackColor = Color.White;
-            frmRentalPerDay.BackColor = Color.White;
+            btnUpdate.Enabled = true;
+            btnCancel.Enabled = true;
+            updatePanel.Visible = true;
+        }
+        private void frmEngine_TextChanged(object sender, EventArgs e)
+        {
+            btnUpdate.Enabled = true;
+            btnCancel.Enabled = true;
+            updatePanel.Visible = true;
+        }
+        public void frmDateReg_TextChanged(object sender, EventArgs e)
+        {
+            btnUpdate.Enabled = true;
+            btnCancel.Enabled = true;
+            updatePanel.Visible = true;
+        }
+        private void frmRentalPerDay_TextChanged(object sender, EventArgs e)
+        {
+            btnUpdate.Enabled = true;
+            btnCancel.Enabled = true;
+            updatePanel.Visible = true;
+        }
+        private void frmVehicleRegistrationNumber_KeyDown(object sender, KeyEventArgs e)
+        {
+            frmVehicleRegistrationNumber.BackColor = Color.LightGoldenrodYellow;
+        }
+        private void frmMake_KeyDown(object sender, KeyEventArgs e)
+        {
+            frmMake.BackColor = Color.LightGoldenrodYellow;
+        }
+        private void frmEngineSize_KeyDown(object sender, EventArgs e)
+        {
+            frmEngineSize.BackColor = Color.LightGoldenrodYellow;
+        }
+        private void frmDateReg_KeyDown(object sender, EventArgs e)
+        {
+            frmDateReg.BackColor = Color.LightGoldenrodYellow;
+        }
+        private void frmRentalPerDay_KeyDown(object sender, KeyEventArgs e)
+        {
+            frmRentalPerDay.BackColor = Color.LightGoldenrodYellow;
+        }
+        private void frmAvailable_KeyDown(object sender, EventArgs e)
+        {
+            frmAvailable.BackColor = Color.LightGoldenrodYellow;
         }
     }
 }

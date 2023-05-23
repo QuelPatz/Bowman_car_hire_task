@@ -49,66 +49,66 @@
             // frmAvailableLabel
             // 
             this.frmAvailableLabel.AutoSize = true;
-            this.frmAvailableLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frmAvailableLabel.Location = new System.Drawing.Point(40, 251);
+            this.frmAvailableLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.frmAvailableLabel.Location = new System.Drawing.Point(42, 188);
             this.frmAvailableLabel.Name = "frmAvailableLabel";
-            this.frmAvailableLabel.Size = new System.Drawing.Size(76, 20);
+            this.frmAvailableLabel.Size = new System.Drawing.Size(65, 18);
             this.frmAvailableLabel.TabIndex = 24;
             this.frmAvailableLabel.Text = "Available";
             // 
             // frmRentalPerDayLabel
             // 
             this.frmRentalPerDayLabel.AutoSize = true;
-            this.frmRentalPerDayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frmRentalPerDayLabel.Location = new System.Drawing.Point(40, 212);
+            this.frmRentalPerDayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.frmRentalPerDayLabel.Location = new System.Drawing.Point(41, 160);
             this.frmRentalPerDayLabel.Name = "frmRentalPerDayLabel";
-            this.frmRentalPerDayLabel.Size = new System.Drawing.Size(123, 20);
+            this.frmRentalPerDayLabel.Size = new System.Drawing.Size(107, 18);
             this.frmRentalPerDayLabel.TabIndex = 23;
             this.frmRentalPerDayLabel.Text = "Rental Per Day";
             // 
             // frmDateRegisteredLabel
             // 
             this.frmDateRegisteredLabel.AutoSize = true;
-            this.frmDateRegisteredLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frmDateRegisteredLabel.Location = new System.Drawing.Point(40, 175);
+            this.frmDateRegisteredLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.frmDateRegisteredLabel.Location = new System.Drawing.Point(41, 132);
             this.frmDateRegisteredLabel.Name = "frmDateRegisteredLabel";
-            this.frmDateRegisteredLabel.Size = new System.Drawing.Size(131, 20);
+            this.frmDateRegisteredLabel.Size = new System.Drawing.Size(114, 18);
             this.frmDateRegisteredLabel.TabIndex = 22;
             this.frmDateRegisteredLabel.Text = "Date Registered";
             // 
             // frmEngineSizeLabel
             // 
             this.frmEngineSizeLabel.AutoSize = true;
-            this.frmEngineSizeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frmEngineSizeLabel.Location = new System.Drawing.Point(40, 135);
+            this.frmEngineSizeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.frmEngineSizeLabel.Location = new System.Drawing.Point(41, 104);
             this.frmEngineSizeLabel.Name = "frmEngineSizeLabel";
-            this.frmEngineSizeLabel.Size = new System.Drawing.Size(98, 20);
+            this.frmEngineSizeLabel.Size = new System.Drawing.Size(86, 18);
             this.frmEngineSizeLabel.TabIndex = 21;
             this.frmEngineSizeLabel.Text = "Engine Size";
             // 
             // frmMakeLabel
             // 
             this.frmMakeLabel.AutoSize = true;
-            this.frmMakeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frmMakeLabel.Location = new System.Drawing.Point(40, 95);
+            this.frmMakeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.frmMakeLabel.Location = new System.Drawing.Point(41, 75);
             this.frmMakeLabel.Name = "frmMakeLabel";
-            this.frmMakeLabel.Size = new System.Drawing.Size(49, 20);
+            this.frmMakeLabel.Size = new System.Drawing.Size(56, 23);
             this.frmMakeLabel.TabIndex = 20;
             this.frmMakeLabel.Text = "Make";
             // 
             // frmVehicleRegLabel
             // 
             this.frmVehicleRegLabel.AutoSize = true;
-            this.frmVehicleRegLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frmVehicleRegLabel.Location = new System.Drawing.Point(40, 51);
+            this.frmVehicleRegLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.frmVehicleRegLabel.Location = new System.Drawing.Point(41, 47);
             this.frmVehicleRegLabel.Name = "frmVehicleRegLabel";
-            this.frmVehicleRegLabel.Size = new System.Drawing.Size(279, 25);
+            this.frmVehicleRegLabel.Size = new System.Drawing.Size(195, 18);
             this.frmVehicleRegLabel.TabIndex = 19;
             this.frmVehicleRegLabel.Text = "Vehicle Registration Number";
             // 
             // frmDateRegistered
             // 
-            this.frmDateRegistered.Location = new System.Drawing.Point(274, 173);
+            this.frmDateRegistered.Location = new System.Drawing.Point(278, 131);
             this.frmDateRegistered.Name = "frmDateRegistered";
             this.frmDateRegistered.Size = new System.Drawing.Size(121, 22);
             this.frmDateRegistered.TabIndex = 29;
@@ -116,7 +116,7 @@
             // 
             // frmEngineSize
             // 
-            this.frmEngineSize.Location = new System.Drawing.Point(274, 133);
+            this.frmEngineSize.Location = new System.Drawing.Point(278, 103);
             this.frmEngineSize.Name = "frmEngineSize";
             this.frmEngineSize.Size = new System.Drawing.Size(179, 22);
             this.frmEngineSize.TabIndex = 28;
@@ -124,16 +124,16 @@
             // 
             // frmMake
             // 
-            this.frmMake.Location = new System.Drawing.Point(274, 93);
+            this.frmMake.Location = new System.Drawing.Point(277, 75);
             this.frmMake.Name = "frmMake";
-            this.frmMake.Size = new System.Drawing.Size(287, 22);
+            this.frmMake.Size = new System.Drawing.Size(247, 22);
             this.frmMake.TabIndex = 27;
             this.frmMake.TextChanged += new System.EventHandler(this.frmMake_TextChanged);
             // 
             // frmVehicleReg
             // 
             this.frmVehicleReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frmVehicleReg.Location = new System.Drawing.Point(275, 49);
+            this.frmVehicleReg.Location = new System.Drawing.Point(278, 47);
             this.frmVehicleReg.Name = "frmVehicleReg";
             this.frmVehicleReg.Size = new System.Drawing.Size(179, 22);
             this.frmVehicleReg.TabIndex = 26;
@@ -144,7 +144,7 @@
             this.frmAvailable.AutoSize = true;
             this.frmAvailable.Checked = true;
             this.frmAvailable.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.frmAvailable.Location = new System.Drawing.Point(274, 255);
+            this.frmAvailable.Location = new System.Drawing.Point(278, 187);
             this.frmAvailable.Name = "frmAvailable";
             this.frmAvailable.Size = new System.Drawing.Size(18, 17);
             this.frmAvailable.TabIndex = 25;
@@ -153,7 +153,7 @@
             // 
             // frmRentalPerDay
             // 
-            this.frmRentalPerDay.Location = new System.Drawing.Point(275, 213);
+            this.frmRentalPerDay.Location = new System.Drawing.Point(278, 159);
             this.frmRentalPerDay.Name = "frmRentalPerDay";
             this.frmRentalPerDay.Size = new System.Drawing.Size(145, 22);
             this.frmRentalPerDay.TabIndex = 30;
@@ -162,7 +162,7 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(44, 310);
+            this.btnClear.Location = new System.Drawing.Point(35, 228);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(148, 48);
             this.btnClear.TabIndex = 31;
@@ -173,7 +173,7 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(230, 310);
+            this.btnAdd.Location = new System.Drawing.Point(221, 228);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(148, 48);
             this.btnAdd.TabIndex = 32;
@@ -184,7 +184,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(413, 310);
+            this.btnClose.Location = new System.Drawing.Point(404, 228);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(148, 48);
             this.btnClose.TabIndex = 33;
@@ -196,7 +196,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 312);
+            this.ClientSize = new System.Drawing.Size(598, 306);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnClear);

@@ -172,11 +172,12 @@ namespace CarsDatabase
             this.frmAvailable.AutoSize = true;
             this.frmAvailable.Checked = true;
             this.frmAvailable.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.frmAvailable.Location = new System.Drawing.Point(263, 282);
+            this.frmAvailable.Location = new System.Drawing.Point(286, 288);
             this.frmAvailable.Name = "frmAvailable";
             this.frmAvailable.Size = new System.Drawing.Size(18, 17);
             this.frmAvailable.TabIndex = 10;
             this.frmAvailable.UseVisualStyleBackColor = true;
+            this.frmAvailable.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmAvailable_KeyDown);
             // 
             // label1
             // 
@@ -251,44 +252,49 @@ namespace CarsDatabase
             // frmVehicleRegistrationNumber
             // 
             this.frmVehicleRegistrationNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frmVehicleRegistrationNumber.Location = new System.Drawing.Point(263, 114);
+            this.frmVehicleRegistrationNumber.Location = new System.Drawing.Point(286, 116);
             this.frmVehicleRegistrationNumber.Name = "frmVehicleRegistrationNumber";
-            this.frmVehicleRegistrationNumber.Size = new System.Drawing.Size(206, 22);
+            this.frmVehicleRegistrationNumber.Size = new System.Drawing.Size(166, 22);
             this.frmVehicleRegistrationNumber.TabIndex = 18;
-            this.frmVehicleRegistrationNumber.Text = "TH237TPL";
+            this.frmVehicleRegistrationNumber.TextChanged += new System.EventHandler(this.frmVehicleRegistrationNumber_TextChanged);
+            this.frmVehicleRegistrationNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmVehicleRegistrationNumber_KeyDown);
             // 
             // frmEngineSize
             // 
-            this.frmEngineSize.Location = new System.Drawing.Point(263, 178);
+            this.frmEngineSize.Location = new System.Drawing.Point(286, 180);
             this.frmEngineSize.Name = "frmEngineSize";
-            this.frmEngineSize.Size = new System.Drawing.Size(206, 22);
+            this.frmEngineSize.Size = new System.Drawing.Size(166, 22);
             this.frmEngineSize.TabIndex = 20;
-            this.frmEngineSize.Text = "1.6L";
+            this.frmEngineSize.TextChanged += new System.EventHandler(this.frmEngine_TextChanged);
+            this.frmEngineSize.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmEngineSize_KeyDown);
             // 
             // frmDateReg
             // 
-            this.frmDateReg.Location = new System.Drawing.Point(263, 213);
+            this.frmDateReg.Location = new System.Drawing.Point(286, 215);
             this.frmDateReg.Name = "frmDateReg";
             this.frmDateReg.Size = new System.Drawing.Size(121, 22);
             this.frmDateReg.TabIndex = 21;
-            this.frmDateReg.Text = "11/05/2023";
+            this.frmDateReg.TextChanged += new System.EventHandler(this.frmDateReg_TextChanged);
+            this.frmDateReg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmDateReg_KeyDown);
             // 
             // frmRentalPerDay
             // 
-            this.frmRentalPerDay.Location = new System.Drawing.Point(263, 247);
+            this.frmRentalPerDay.Location = new System.Drawing.Point(286, 249);
             this.frmRentalPerDay.Name = "frmRentalPerDay";
             this.frmRentalPerDay.Size = new System.Drawing.Size(121, 22);
             this.frmRentalPerDay.TabIndex = 22;
-            this.frmRentalPerDay.Text = "€110.00";
             this.frmRentalPerDay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.frmRentalPerDay.TextChanged += new System.EventHandler(this.frmRentalPerDay_TextChanged);
+            this.frmRentalPerDay.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmRentalPerDay_KeyDown);
             // 
             // frmMake
             // 
-            this.frmMake.Location = new System.Drawing.Point(263, 147);
+            this.frmMake.Location = new System.Drawing.Point(286, 149);
             this.frmMake.Name = "frmMake";
-            this.frmMake.Size = new System.Drawing.Size(304, 22);
+            this.frmMake.Size = new System.Drawing.Size(255, 22);
             this.frmMake.TabIndex = 19;
-            this.frmMake.Text = "Mercedes";
+            this.frmMake.TextChanged += new System.EventHandler(this.frmMake_TextChanged);
+            this.frmMake.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMake_KeyDown);
             // 
             // recordCount
             // 
@@ -296,7 +302,6 @@ namespace CarsDatabase
             this.recordCount.Name = "recordCount";
             this.recordCount.Size = new System.Drawing.Size(121, 22);
             this.recordCount.TabIndex = 22;
-            this.recordCount.Text = "1 to 15";
             this.recordCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.recordCount.Click += new System.EventHandler(this.recordCount_TextChanged_1);
             this.recordCount.TextChanged += new System.EventHandler(this.recordCount_TextChanged_1);
@@ -304,9 +309,9 @@ namespace CarsDatabase
             // updatePanel
             // 
             this.updatePanel.BackColor = System.Drawing.Color.Transparent;
-            this.updatePanel.Location = new System.Drawing.Point(24, 102);
+            this.updatePanel.Location = new System.Drawing.Point(34, 93);
             this.updatePanel.Name = "updatePanel";
-            this.updatePanel.Size = new System.Drawing.Size(562, 235);
+            this.updatePanel.Size = new System.Drawing.Size(543, 235);
             this.updatePanel.TabIndex = 23;
             // 
             // frmCars
@@ -315,20 +320,20 @@ namespace CarsDatabase
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(710, 458);
+            this.Controls.Add(this.frmAvailable);
+            this.Controls.Add(this.frmEngineSize);
             this.Controls.Add(this.recordCount);
             this.Controls.Add(this.frmRentalPerDay);
-            this.Controls.Add(this.frmDateReg);
-            this.Controls.Add(this.frmEngineSize);
-            this.Controls.Add(this.frmMake);
-            this.Controls.Add(this.frmVehicleRegistrationNumber);
             this.Controls.Add(this.frmAvailableLabel);
             this.Controls.Add(this.frmRentalPerDayLabel);
+            this.Controls.Add(this.frmDateReg);
             this.Controls.Add(this.frmDateRegisteredLabel);
+            this.Controls.Add(this.frmVehicleRegistrationNumber);
+            this.Controls.Add(this.frmMake);
             this.Controls.Add(this.frmEngineSizeLabel);
             this.Controls.Add(this.frmMakeLabel);
             this.Controls.Add(this.frmVehicleRegistrationNumberLabel);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.frmAvailable);
             this.Controls.Add(this.btnLast);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrevious);

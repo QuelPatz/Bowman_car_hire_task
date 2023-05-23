@@ -38,8 +38,6 @@
             this.frmValueLabel = new System.Windows.Forms.Label();
             this.frmOperatorLabel = new System.Windows.Forms.Label();
             this.frmFieldLabel = new System.Windows.Forms.Label();
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
-            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
             ((System.ComponentModel.ISupportInitialize)(this.frmDataGrid)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +49,7 @@
             this.frmDataGrid.Name = "frmDataGrid";
             this.frmDataGrid.RowHeadersWidth = 51;
             this.frmDataGrid.RowTemplate.Height = 24;
-            this.frmDataGrid.Size = new System.Drawing.Size(566, 208);
+            this.frmDataGrid.Size = new System.Drawing.Size(557, 200);
             this.frmDataGrid.TabIndex = 0;
             this.frmDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.frmDataGrid_CellContentClick);
             // 
@@ -146,29 +144,11 @@
             this.frmFieldLabel.TabIndex = 0;
             this.frmFieldLabel.Text = "Field";
             // 
-            // vScrollBar1
-            // 
-            this.vScrollBar1.LargeChange = 90;
-            this.vScrollBar1.Location = new System.Drawing.Point(588, 151);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(21, 181);
-            this.vScrollBar1.TabIndex = 4;
-            // 
-            // hScrollBar1
-            // 
-            this.hScrollBar1.LargeChange = 70;
-            this.hScrollBar1.Location = new System.Drawing.Point(34, 332);
-            this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Size = new System.Drawing.Size(554, 27);
-            this.hScrollBar1.TabIndex = 5;
-            // 
             // frmSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 377);
-            this.Controls.Add(this.hScrollBar1);
-            this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnRun);
@@ -194,8 +174,6 @@
         private System.Windows.Forms.Label frmOperatorLabel;
         private System.Windows.Forms.Label frmFieldLabel;
         private System.Windows.Forms.TextBox valueTextbox;
-        private System.Windows.Forms.VScrollBar vScrollBar1;
-        private System.Windows.Forms.HScrollBar hScrollBar1;
         private System.Windows.Forms.ComboBox cboOperator;
         private System.Windows.Forms.ComboBox cboField;
     }
